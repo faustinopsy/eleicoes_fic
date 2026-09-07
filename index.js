@@ -1,15 +1,28 @@
 import express from 'express'
 import candidatoRouter from './src/routes/candidatoRouter.js'
 import candidatoViewRouter from './src/routes/candidatoViewRouter.js'
+import loginRouter from './src/routes/loginRouter.js'
+import painelRouter from './src/routes/painelRouter.js'
 import path from 'node:path'
+import session from 'express-session'
 const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(path.resolve(), 'src', 'views'))
 app.use(express.json())
+app.use(session({
+  secret: 'xx22-yy33-aa34',
+  resave: false,
+  saveUninitialized: false,
+}))
+
+app.use(express.urlencoded({ extended: true }))
+
 //      chave base da url
-app.use('/api', candidatoRouter)
 app.use('/', candidatoViewRouter)
+app.use('/api', candidatoRouter)
+app.use('/login', loginRouter)
+app.use('/painel', painelRouter)
 
 
 app.listen(3000, () => {

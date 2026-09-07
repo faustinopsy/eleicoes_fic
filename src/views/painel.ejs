@@ -1,0 +1,23 @@
+<%- include('partials/cabecalho') %>
+ 
+<p>Bem vindo, <%= usuario %>.</p>
+ 
+<h2>Cadastrar candidato</h2>
+<form method="POST" action="/painel/cad-candidatos">
+  <input type="text" name="nome" placeholder="nome">
+  <input type="text" name="numero" placeholder="numero">
+  <button type="submit">cadastrar</button>
+</form>
+ 
+<h2>Relatorio de votos</h2>
+<table>
+  <% for (const linha of relatorio) { %>
+    <tr>
+      <td><%= linha.numero %></td>
+      <td><%= linha.nome %></td>
+      <td><%= linha.votos %> voto(s)</td>
+    </tr>
+  <% } %>
+</table>
+ 
+<a href="/logout">sair</a>
