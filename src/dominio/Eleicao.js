@@ -1,12 +1,13 @@
 import { Candidato } from './Candidato.js'
  
-class Eleicao {
+export class Eleicao {
   constructor() {
     this.candidatos = []
     this.votos = []
   }
  
   cadastrar(nome, numero) {
+    numero = Number(numero)
     const jaExiste = this.candidatos.find((candidato) => candidato.numeroUrna === numero)
  
     if (jaExiste) {

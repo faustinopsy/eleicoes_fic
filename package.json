@@ -16,6 +16,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
+    "candidato:demo": "node scripts/candidatoDemo.js",
+    "array:demo": "node scripts/arrayDemo.js",
+    "eleicao:demo": "node scripts/eleicaoDemo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

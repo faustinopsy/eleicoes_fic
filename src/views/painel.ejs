@@ -13,11 +13,11 @@
 <table>
   <% for (const linha of relatorio) { %>
     <tr>
-      <td><%= linha.numero %></td>
+      <td><%= linha.numeroUrna %></td>
       <td><%= linha.nome %></td>
       <td><%= linha.votos %> voto(s)</td>
     </tr>
   <% } %>
 </table>
  
-<a href="/logout">sair</a>
+<a href="/login/logout">sair</a>

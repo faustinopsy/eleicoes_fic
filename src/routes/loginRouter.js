@@ -19,4 +19,9 @@ loginRouter.post('/', (req, res) => {
   req.session.usuario = professor.login
   res.redirect('/painel')
 })
- export default loginRouter 
+
+loginRouter.get('/logout', (req, res) => {
+  req.session.destroy(() => res.redirect('/login'))
+})
+
+export default loginRouter

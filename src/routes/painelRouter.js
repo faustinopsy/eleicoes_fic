@@ -1,13 +1,9 @@
 import { Router } from "express";
 import { eleicao } from "../dominio/Eleicao.js";
+import { exigirLogin } from '../middlewares/exigirLogin.js'
+
 const painelRouter = Router()
 
-function exigirLogin(req, res, next) {
-  if (!req.session.usuario) {
-    return res.redirect('/login')
-  }
-  next()
-}
 
 painelRouter.get('/', exigirLogin, (req, res) => {
   res.render('painel', {
